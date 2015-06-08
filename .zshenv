@@ -21,5 +21,3 @@ if [[ $ARCH == "SunOS"* ]]; then
         export TERM=xterm-color
     fi        
 fi
-
-HOMEBREW_GITHUB_API_TOKEN=5f938033693ddec151e820e827041936c60358e4
