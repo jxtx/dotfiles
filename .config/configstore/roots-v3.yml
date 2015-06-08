@@ -1,0 +1,3 @@
+package_manager: bower
+default_template: roots-base
+analytics: false

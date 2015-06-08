@@ -1,0 +1,6 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =4
+let g:netrw_dirhist_1='/Users/james/projects/labsite/labsite-metalsmith/build'
+let g:netrw_dirhist_2='/Users/james/projects/labsite/labsite-metalsmith/src/news/2008-09-27-state-python-and-bioinformatics'
+let g:netrw_dirhist_3='/Users/james/projects/labsite/labsite-metalsmith/src/news/2009-08-17-new-lab-members'
+let g:netrw_dirhist_4='/Users/james/dotfiles/zsh/.zprezto'

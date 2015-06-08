@@ -1,0 +1,15 @@
+[ui]
+username = James Taylor <james@jamestaylor.org>
+
+[extensions]
+transplant =
+color = 
+hgext.graphlog =
+hgext.mq = 
+hgext.patchbomb =
+hgext.fetch =
+hgext.convert =
+rebase =
+churn =
+progress =
+hggit =
