@@ -1,0 +1,64 @@
+
+Xft*dpi: 100
+Xft*antialias: true
+Xft*hinting: full
+Xft*hintstyle: hintfull
+Xft*rgba: rgb
+Xft*lcdfilter: lcddefault
+
+xterm*termName: xterm-256color
+
+xterm*utf8: 1
+! xterm*faceName: Bitstream Vera Sans Mono:pixelsize=12
+!xterm*faceName: Terminus
+xterm*VT100.faceName: Dejavu Sans Mono
+xterm*VT100.boldFont: Dejavu Sans Mono:style=Bold
+! xterm*faceName: Consolas:pixelsize=13
+!xterm*VT100.faceName: Source Code Pro
+!xterm*VT100.boldFont: Source Code Pro:style=Bold
+
+xterm*faceSize: 9
+
+xterm*faceSize1: 7 
+xterm*faceSize2: 8 
+xterm*faceSize3: 9 
+xterm*faceSize4: 12 
+xterm*faceSize5: 16 
+xterm*faceSize6: 20
+
+xterm*saveLines: 10000
+xterm*borderWidth: 0
+xterm*scrollbar*thickness: 8
+xterm*scrollbar*foreground: black
+xterm*ScrollBar: True
+xterm*scrollBar: on
+xterm*rightScrollBar: true
+
+xterm*scrollbar.thumb: black
+xterm*scrollbar.displayList:
+xterm*scrollBarBorder: 0
+
+*VT100.scrollbar.translations:#override \n\
+		<Btn5Down>:StartScroll(Forward) \n\
+		<Btn1Down>:StartScroll(Continuous) MoveThumb() NotifyThumb() \n\
+		<Btn4Down>:StartScroll(Backward) \n\
+		<Btn1Motion>:MoveThumb() NotifyThumb() \n\
+		<BtnUp>:  NotifyScroll(Proportional) EndScroll()
+
+! CUA-like keys
+*VT100.translations: #override\
+    <Key>Prior: scroll-back(1,pages) \n\
+    <Key>Next: scroll-forw(1,pages)\n\
+    Meta <KeyPress> minus: smaller-vt-font() \n\
+    Meta <KeyPress> KP_Subtract: smaller-vt-font() \n\
+    Meta <KeyPress> plus: larger-vt-font() \n\
+    Meta <KeyPress> KP_Add: larger-vt-font() \n\
+    Meta <KeyPress> C: select-cursor-start() \
+    select-cursor-end(PRIMARY, CUT_BUFFER0) \n\
+    Meta <KeyPress> V: insert-selection(PRIMARY, CUT_BUFFER0) \n\
+
+! #include ".Xdefaults.solarized"
+#include ".Xdefaults.base16-default.dark"
+
+URxvt.scrollstyle: plain
+URxvt.font: xft:Dejavu Sans Mono
