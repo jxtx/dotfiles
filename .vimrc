@@ -1,65 +1,61 @@
-filetype on
-filetype plugin on
-filetype indent on
+" spaceleader always
+nnoremap <SPACE> <Nop>
+let mapleader = ' '
 
-let mapleader = " "
+" Syntax highlighting always
+syntax on
 
-" Always highlight everything
-syn on
+" Default tab/space settings
+set tabstop=4 shiftwidth=4 expandtab
 
-" Settings for indentation
-set tabstop=4 shiftwidth=4 
+" Hybrid line numbering
+set relativenumber
+set number
 
+"set colorcolumn=80,120
+
+" Use memory
 set hidden
+set history=100
 
-set ruler showmode
+" Search
+set hlsearch
 
-" Searching
-set incsearch showcmd ignorecase smartcase
-
-" Completion
-set wildmenu
-set wildmode=list:longest
-
-set viminfo='1000,f1,<500,
-
-" Spell checking
-"set spell    
-
-" Use window titlebar
-set title
-
-set ofu=syntaxcomplete#Complete
-
-" Zenburn scheme, but high contrast
-" let g:zenburn_high_Contrast = 1
-" colorscheme zenburn
-
-" Allow windows to be squished down and cycled like a stack
-set winminheight=0
-map <C-J> <C-W>w<C-W>_
-
-" Switching buffers
-nmap <tab> :bn<cr>
-nmap <s-tab> :bp<cr>
-
-" Show Trailing whitespace
-" set listchars=tab:>-,trail:·,eol:$
-nmap <silent> <leader>s :set nolist!<CR>
-
-" FuzzyFinder
-map <Leader>t :FufFile<CR>
-
-" NERDTree
-map <leader>d :execute 'NERDTreeToggle ' . getcwd()<CR>
-
-" buftabs
-set laststatus=2
-:let g:buftabs_in_statusline=1
-:let g:buftabs_active_highlight_group="Visual"
-
-set ts=4 sts=4 sw=4 et
-
-" File type specific 
+" File type specific
+filetype on
 au FileType make set noexpandtab
-au FileType python,pyrex setl ts=4 sw=4 sts=4 et ai
+
+" Arrow Keys
+map <D-A-RIGHT> <C-w>l
+map <D-A-LEFT> <C-w>h
+map <D-A-DOWN> <C-w><C-w>
+map <D-A-UP> <C-w>W
+
+" Land of plugins begins
+
+" vim-plug automatic installation 
+if empty(glob('~/.vim/autoload/plug.vim'))
+    silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    autocmd VimEnter * PlugInstall " --sync | source $MYVIMRC
+endif
+
+call plug#begin()
+
+Plug 'hecal3/vim-leader-guide'
+Plug 'easymotion/vim-easymotion'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'itchyny/lightline.vim'
+" Colors
+Plug 'chriskempson/base16-vim'
+" The note spacevim.org spacevim plugin, gives us keybindings only
+Plug 'ctjhoa/spacevim'
+
+call plug#end()
+
+set laststatus=2
+
+" let base16colorspace=256
+colorscheme base16-solarized-dark
+hi Normal ctermbg=none
+hi LineNr ctermbg=none
+hi CursorLineNr ctermbg=none
